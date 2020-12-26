@@ -10,6 +10,8 @@ import Instructions
 
 class HomeViewController: UIViewController {
     
+    let coachMarksController = CoachMarksController()
+    
     let nameTF: UITextField = {
         let textField = UITextField()
         setUpTextField(textField, placeHolder: "Name", keyboardType: UIKeyboardType.default)
@@ -37,12 +39,14 @@ class HomeViewController: UIViewController {
         print("add button pressed")
     }
     
-    //    MARK: - VieDidLoad
+    //    MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpViewConstraints()
+        self.coachMarksController.dataSource = self
+        self.coachMarksController.delegate = self
         
     }
     //    MARK: SetUpViewConstraints
@@ -71,9 +75,24 @@ class HomeViewController: UIViewController {
         addButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 120).isActive = true
         addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -120).isActive = true
     }
-    
+
 }
 
+extension HomeViewController: CoachMarksControllerDataSource, CoachMarksControllerDelegate {
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: (UIView & CoachMarkBodyView), arrowView: (UIView & CoachMarkArrowView)?) {
+        <#code#>
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkAt index: Int) -> CoachMark {
+        <#code#>
+    }
+    
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        <#code#>
+    }
+    
+}
 
 // MARK: - HelperFuncions
 
