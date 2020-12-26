@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Instructions
 
 class HomeViewController: UIViewController {
     
@@ -70,7 +71,9 @@ class HomeViewController: UIViewController {
         addButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 120).isActive = true
         addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -120).isActive = true
     }
+    
 }
+
 
 // MARK: - HelperFuncions
 
