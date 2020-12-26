@@ -43,12 +43,21 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpViewConstraints()
         self.coachMarksController.dataSource = self
         self.coachMarksController.delegate = self
-        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.coachMarksController.start(in: .viewController(self))
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.coachMarksController.stop(immediately: true)
+    }
+    
     //    MARK: SetUpViewConstraints
     
     func setUpTextFieldConstrainst(textField: UITextField) {
@@ -75,21 +84,45 @@ class HomeViewController: UIViewController {
         addButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 120).isActive = true
         addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -120).isActive = true
     }
-
+    
 }
 
 extension HomeViewController: CoachMarksControllerDataSource, CoachMarksControllerDelegate {
     
-    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: (UIView & CoachMarkBodyView), arrowView: (UIView & CoachMarkArrowView)?) {
-        <#code#>
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 4
     }
     
     func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkAt index: Int) -> CoachMark {
-        <#code#>
+        
+        switch index {
+        
+        case 0: return coachMarksController.helper.makeCoachMark(for: nameTF)
+        case 1: return coachMarksController.helper.makeCoachMark(for: userNameTF)
+        case 2: return coachMarksController.helper.makeCoachMark(for: addButton)
+            
+        default: return coachMarksController.helper.makeCoachMark()
+        }
     }
     
-    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
-        <#code#>
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: (UIView & CoachMarkBodyView), arrowView: (UIView & CoachMarkArrowView)?) {
+        
+        let coachViews = coachMarksController.helper.makeDefaultCoachViews(withArrow: true,  arrowOrientation: coachMark.arrowOrientation)
+        
+        switch index {
+        case 0:
+            coachViews.bodyView.hintLabel.text = "Enter your name"
+            coachViews.bodyView.nextLabel.text = "Done"
+        case 1:
+            coachViews.bodyView.hintLabel.text = "Enter your last name"
+            coachViews.bodyView.nextLabel.text = "Done"
+        case 2:
+            coachViews.bodyView.hintLabel.text = "Press after entering all data"
+            coachViews.bodyView.nextLabel.text = "Done"
+        default:
+            break
+        }
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
     }
     
 }
