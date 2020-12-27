@@ -46,11 +46,20 @@ class HomeViewController: UIViewController {
         setUpViewConstraints()
         self.coachMarksController.dataSource = self
         self.coachMarksController.delegate = self
+        
+        let skipView = CoachMarkSkipDefaultView()
+        skipView.setTitle("Skip", for: .normal)
+
+        self.coachMarksController.skipView = skipView
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.coachMarksController.start(in: .viewController(self))
+        
+        if !AppManager.getUserSeenAppInstruction() {
+            self.coachMarksController.start(in: .viewController(self))
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -124,6 +133,11 @@ extension HomeViewController: CoachMarksControllerDataSource, CoachMarksControll
         }
         return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
     }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, didEndShowingBySkipping skipped: Bool) {
+        AppManager.setUserSeenAppInstructions()
+    }
+    
     
 }
 

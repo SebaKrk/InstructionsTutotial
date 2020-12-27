@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2266B2F72DDEF32E16867C60 /* Pods_InstructionsTutotial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D57C422DE60F7F5D200824B /* Pods_InstructionsTutotial.framework */; };
+		930114FB2597F2DA0019E68F /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930114FA2597F2DA0019E68F /* AppManager.swift */; };
 		93ACDF02259715090053DFF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACDF01259715090053DFF9 /* AppDelegate.swift */; };
 		93ACDF04259715090053DFF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACDF03259715090053DFF9 /* SceneDelegate.swift */; };
 		93ACDF06259715090053DFF9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACDF05259715090053DFF9 /* HomeViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		81E7410205440E7A8D0F07E7 /* Pods-InstructionsTutotial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstructionsTutotial.debug.xcconfig"; path = "Target Support Files/Pods-InstructionsTutotial/Pods-InstructionsTutotial.debug.xcconfig"; sourceTree = "<group>"; };
+		930114FA2597F2DA0019E68F /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		93ACDEFE259715090053DFF9 /* InstructionsTutotial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstructionsTutotial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93ACDF01259715090053DFF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93ACDF03259715090053DFF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +62,6 @@
 				81E7410205440E7A8D0F07E7 /* Pods-InstructionsTutotial.debug.xcconfig */,
 				A44DF8403E0A31A6B68F2AA2 /* Pods-InstructionsTutotial.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -94,6 +95,7 @@
 				93ACDF0A2597150C0053DFF9 /* Assets.xcassets */,
 				93ACDF0C2597150C0053DFF9 /* LaunchScreen.storyboard */,
 				93ACDF0F2597150C0053DFF9 /* Info.plist */,
+				930114FA2597F2DA0019E68F /* AppManager.swift */,
 			);
 			path = InstructionsTutotial;
 			sourceTree = "<group>";
@@ -211,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				930114FB2597F2DA0019E68F /* AppManager.swift in Sources */,
 				93ACDF1F25971A7C0053DFF9 /* SearchViewController.swift in Sources */,
 				93ACDF2225971AA90053DFF9 /* GearViewController.swift in Sources */,
 				93ACDF06259715090053DFF9 /* HomeViewController.swift in Sources */,
